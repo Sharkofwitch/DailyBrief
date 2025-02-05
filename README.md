@@ -8,6 +8,7 @@ DailyBrief is a web application that collects and visualizes the most important 
 - Displays the news in a clean, responsive layout with a dark background.
 - Built with React and Next.js for a smooth and responsive user experience.
 - News can be visualized as cards, each containing a title and a link to the full article.
+- Deployed with [Vercel](https://vercel.com) for fast and reliable hosting.
 
 ## Installation
 
@@ -37,6 +38,12 @@ To ensure the scraper collects the latest news, you need to configure it. You ca
 
 If you want to send the news via email, configure your email provider settings in `config/email.js`. You’ll need to provide SMTP credentials to enable email functionality.
 
+### Deployment
+
+This project is deployed on [Vercel](https://vercel.com). For deployment on Vercel, simply connect your GitHub repository to Vercel, and it will automatically handle builds and deployments. 
+
+If you want to use your own domain (e.g., `dailybrief.szark.org`), you can configure it through Vercel’s dashboard.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -50,3 +57,4 @@ Contributions are welcome! If you want to contribute, feel free to open an issue
 - [Puppeteer](https://pptr.dev/) for web scraping.
 - [React](https://reactjs.org/) and [Next.js](https://nextjs.org/) for frontend development.
 - [Styled-components](https://styled-components.com/) for the styling and layout.
+- [Vercel](https://vercel.com) for deployment.
