@@ -4,10 +4,10 @@ DailyBrief is a web application that collects and visualizes the most important 
 
 ## Features
 
-- Scrapes the most important news from around the world.
-- Displays the news in a clear, readable format.
-- Sends news via email (optional).
+- Scrapes the most important news from trusted sources like BBC.
+- Displays the news in a clean, responsive layout with a dark background.
 - Built with React and Next.js for a smooth and responsive user experience.
+- News can be visualized as cards, each containing a title and a link to the full article.
 
 ## Installation
 
@@ -31,7 +31,7 @@ This will start the app on `http://localhost:3000`.
 
 ### Setting up the Web Scraper
 
-To ensure the scraper collects the latest news, you need to configure it. You can adjust the scraper settings in `scraper.js` to specify which news sources you want to track and how frequently it should run.
+To ensure the scraper collects the latest news, you need to configure it. You can adjust the scraper settings in `scraper.js` to specify which news sources you want to track and how frequently it should run. The scraper currently collects news from [BBC](https://www.bbc.com/news) and outputs the headlines and their corresponding links.
 
 ### Email Notification (optional)
 
@@ -48,4 +48,5 @@ Contributions are welcome! If you want to contribute, feel free to open an issue
 ## Acknowledgments
 
 - [Puppeteer](https://pptr.dev/) for web scraping.
-- [React](https://reactjs.org/) and [Next.js](https://nextjs.org/) for the frontend development.
+- [React](https://reactjs.org/) and [Next.js](https://nextjs.org/) for frontend development.
+- [Styled-components](https://styled-components.com/) for the styling and layout.
