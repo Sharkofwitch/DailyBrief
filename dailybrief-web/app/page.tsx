@@ -70,7 +70,7 @@ const NewsCard = ({ title, link }: { title: string; link: string }) => (
 );
 
 const Page = () => {
-  const [headlines, setHeadlines] = useState<any[]>([]);
+  const [headlines, setHeadlines] = useState<{ title: string; link: string }[]>([]);
 
   useEffect(() => {
     const fetchHeadlines = async () => {
