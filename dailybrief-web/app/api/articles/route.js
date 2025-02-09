@@ -11,6 +11,7 @@ export async function GET() {
 
     return NextResponse.json(articles, { status: 200 });
   } catch (error) {
+    console.error("API Error:", error);
     return NextResponse.json({ error: 'Failed to load articles' }, { status: 500 });
   }
 }
