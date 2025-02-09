@@ -12,7 +12,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: flex-start;
 `;
 
@@ -74,9 +74,14 @@ const Page = () => {
 
   useEffect(() => {
     const fetchHeadlines = async () => {
-      const res = await fetch('/api/headlines');
-      const data = await res.json();
-      setHeadlines(data);
+      try {
+        const res = await fetch('/api/articles');
+        if (!res.ok) throw new Error('Failed to fetch');
+        const data = await res.json();
+        setHeadlines(data);
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     fetchHeadlines();
@@ -85,9 +90,13 @@ const Page = () => {
   return (
     <Container>
       <Title>BBC News Headlines</Title>
-      {headlines.map((headline, index) => (
-        <NewsCard key={index} title={headline.title} link={headline.link} />
-      ))}
+      {headlines.length > 0 ? (
+        headlines.map((headline, index) => (
+          <NewsCard key={index} title={headline.title} link={headline.link} />
+        ))
+      ) : (
+        <p>Loading...</p>
+      )}
     </Container>
   );
 };
