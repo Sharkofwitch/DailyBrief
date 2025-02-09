@@ -1,7 +1,8 @@
 {
   "dependencies": {
+    "mongoose": "^8.10.0",
     "next": "^15.1.6",
-    "puppeteer": "^24.1.1",
+    "puppeteer": "^24.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "styled-components": "^6.1.14"
@@ -9,11 +10,9 @@
   "name": "dailybrief",
   "version": "1.0.0",
   "main": "index.js",
-
   "engines": {
     "node": "18.18.0"
   },
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
