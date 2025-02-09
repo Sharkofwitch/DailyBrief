@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-// MongoDB-URL aus Umgebungsvariablen (sicherstellen, dass sie in Vercel gesetzt ist)
+// MongoDB-URL aus Umgebungsvariablen
 const mongoUrl = process.env.MONGODB_URI; // Deine MongoDB-URI
 
 // Mongoose-Schema für die Schlagzeilen
@@ -16,9 +16,9 @@ async function connectToDatabase() {
   if (mongoose.connection.readyState === 1) {
     return; // Wenn bereits verbunden, nichts tun
   }
-  
+
   try {
-    await mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect(mongoUrl); // Keine veralteten Optionen mehr
     console.log('Verbindung zur MongoDB-Datenbank hergestellt');
   } catch (error) {
     console.error('MongoDB-Verbindung fehlgeschlagen', error);
