@@ -1,0 +1,14 @@
+name: Scrape News
+
+on:
+  schedule:
+    - cron: "0 * * * *" # Läuft jede Stunde
+  workflow_dispatch: # Erlaubt manuelles Ausführen
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Scraping API
+        run: |
+          curl -X GET https://dailybrief.szark.org/api/scrape
