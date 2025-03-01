@@ -13,14 +13,16 @@ const Container = styled.div`
   align-items: center;
   padding: 20px;
   min-height: 100vh;
-  justify-content: flex-start;
+  height: auto;
+  width: 100%;
 `;
 
 const Title = styled.h1`
   font-size: 2.5rem;
   color: #ff6347;
   text-align: center;
-  margin-bottom: 30px;
+  margin: 0;
+  padding-top: 20px;
 `;
 
 const Card = styled.div`
