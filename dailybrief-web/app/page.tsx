@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
 import styled from 'styled-components';
 
-// Dunkler Hintergrund und zentrierte Inhalte
 const Container = styled.div`
   background-color: #2e2e2e;
   color: #f1f1f1;
@@ -16,15 +16,13 @@ const Container = styled.div`
   justify-content: flex-start;
 `;
 
-// Überschrift
 const Title = styled.h1`
   font-size: 2.5rem;
-  color: #ff6347; /* Tomatenrot */
+  color: #ff6347;
   text-align: center;
   margin-bottom: 30px;
 `;
 
-// Container für jedes einzelne Nachrichten-Card
 const Card = styled.div`
   background: #444;
   border-radius: 8px;
@@ -40,14 +38,12 @@ const Card = styled.div`
   }
 `;
 
-// Titel der Schlagzeile
 const CardTitle = styled.h3`
   font-size: 1.4rem;
   color: #f1f1f1;
   margin: 0;
 `;
 
-// Link zum Artikel
 const CardLink = styled.a`
   text-decoration: none;
   color: #ff6347;
@@ -71,15 +67,18 @@ const NewsCard = ({ title, link }: { title: string; link: string }) => (
 
 const Page = () => {
   const [headlines, setHeadlines] = useState<{ title: string; link: string }[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchHeadlines = async () => {
       try {
-        const res = await fetch('/api/headlines'); // API-Route verwenden
+        const res = await fetch('/api/headlines');
         const data = await res.json();
         setHeadlines(data);
       } catch (error) {
         console.error('Fehler beim Laden der Nachrichten:', error);
+      } finally {
+        setLoading(false);
       }
     };
     
@@ -87,16 +86,24 @@ const Page = () => {
   }, []);
 
   return (
-    <Container>
-      <Title>BBC News Headlines</Title>
-      {headlines.length > 0 ? (
-        headlines.map((headline, index) => (
-          <NewsCard key={index} title={headline.title} link={headline.link} />
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
-    </Container>
+    <>
+      <Head>
+        <title>DailyBrief – BBC News</title>
+        <meta name="description" content="Aktuelle BBC-Schlagzeilen auf einen Blick" />
+      </Head>
+      <Container>
+        <Title>BBC News Headlines</Title>
+        {loading ? (
+          <p>Loading...</p>
+        ) : headlines.length > 0 ? (
+          headlines.map((headline, index) => (
+            <NewsCard key={index} title={headline.title} link={headline.link} />
+          ))
+        ) : (
+          <p>Keine Nachrichten gefunden.</p>
+        )}
+      </Container>
+    </>
   );
 };
 
