@@ -75,15 +75,14 @@ const Page = () => {
   useEffect(() => {
     const fetchHeadlines = async () => {
       try {
-        const res = await fetch('/api/articles');
-        if (!res.ok) throw new Error('Failed to fetch');
+        const res = await fetch('/api/headlines'); // API-Route verwenden
         const data = await res.json();
         setHeadlines(data);
       } catch (error) {
-        console.error(error);
+        console.error('Fehler beim Laden der Nachrichten:', error);
       }
     };
-
+    
     fetchHeadlines();
   }, []);
 
