@@ -9,6 +9,10 @@ DailyBrief is a web application that collects and visualizes the most important 
 - Built with React and Next.js for a smooth and responsive user experience.
 - News can be visualized as cards, each containing a title and a link to the full article.
 - Deployed with [Vercel](https://vercel.com) for fast and reliable hosting.
+- **Infinite scrolling** for seamless browsing of news articles.
+- **Improved styling and layout optimizations** for better readability and responsiveness.
+- **Dynamic category filtering** to sort news by different topics.
+- **Optimized scraper** for more efficient and reliable data collection.
 
 ## Installation
 
