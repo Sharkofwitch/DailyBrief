@@ -1,9 +1,8 @@
 {
     "functions": {
-      "api/scrape.js": {
+      "api/scrape/route.js": {
         "runtime": "nodejs18.x",
-        "includeFiles": ["node_modules/puppeteer/.local-chromium/**"]
+        "includeFiles": "node_modules/puppeteer/.local-chromium/**"
       }
     }
   }
-  
